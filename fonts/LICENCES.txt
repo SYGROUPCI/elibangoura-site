@@ -1,0 +1,2 @@
+Instrument Serif, DM Mono et Reenie Beanie : polices sous licence SIL Open Font License 1.1
+(https://openfontlicense.org), récupérées depuis Google Fonts (sous-ensemble latin, woff2).

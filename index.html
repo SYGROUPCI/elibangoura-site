@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eli Bangoura</title>
+<meta name="description" content="Eli Bangoura, à Logroño. Ce que j'apprends, ce que je fabrique et ce qui me trotte dans la tête.">
+<meta name="theme-color" content="#f1e9dc">
+<link rel="canonical" href="https://elibangoura.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://elibangoura.com/">
+<meta property="og:title" content="Eli Bangoura">
+<meta property="og:description" content="Ce que j'apprends, ce que je fabrique et ce qui me trotte dans la tête.">
+<meta property="og:image" content="https://elibangoura.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page" id="page">
+  <!-- Le fil (décoratif) : dessiné par fil.js. Sans JavaScript, la page reste complète. -->
+  <svg class="yarn" id="yarn" aria-hidden="true" focusable="false">
+    <defs>
+      <mask id="reveal" maskUnits="userSpaceOnUse"><path id="reveal-path" fill="none" stroke="#fff" stroke-width="24" stroke-linecap="round"/></mask>
+      <radialGradient id="pelote-grad" cx="35%" cy="30%"><stop offset="0" stop-color="#9b6cc6"/><stop offset=".55" stop-color="#5b2a86"/><stop offset="1" stop-color="#2f1148"/></radialGradient>
+    </defs>
+    <g mask="url(#reveal)">
+      <path class="yp yp-shadow"/>
+      <path class="yp yp-fuzz"/>
+      <path class="yp yp-core"/>
+      <path class="yp yp-twist"/>
+      <path class="yp yp-light"/>
+    </g>
+    <g id="pelote" class="pelote"></g>
+  </svg>
+
+  <div class="in">
+    <header>
+      <p class="kick">Logroño · La Rioja</p>
+      <h1>Eli <i>Bangoura</i></h1>
+    </header>
+
+    <figure class="pola-wrap">
+      <span class="pince" id="pince" aria-hidden="true"></span>
+      <div class="pola">
+        <div class="pic"><img src="photos/eli-polaroid.webp" width="540" height="864" alt="Eli Bangoura en robe bordeaux, dans la rue" fetchpriority="high"></div>
+        <figcaption>Eli, 2026</figcaption>
+      </div>
+    </figure>
+
+    <p class="tag">Ici, je garde ce que j'apprends, ce que je fabrique et ce qui me trotte dans la tête. Un rang après l'autre.</p>
+
+    <!--
+      LES CARTES
+      Pour en ajouter une : copie un bloc <div class="card">…</div> et change le numéro, le titre, la phrase et l'étape.
+      Pour activer une carte : remplace <div class="card"> par <a class="card on" href="https://…"> (et </div> par </a>).
+      Étapes possibles : Pelote · Mailles montées · Sur les aiguilles · Au repos · Rabattu
+      Le fil se recalcule tout seul.
+    -->
+    <section class="cards" aria-label="Mes pelotes">
+      <a class="card on" href="https://sygroupci.github.io/mi-espanol/" style="--r:-.6deg">
+        <span class="knot" aria-hidden="true"></span>
+        <span class="n">01</span>
+        <h2>Mi Español</h2>
+        <p>Un peu d'espagnol chaque jour, même cinq minutes.</p>
+        <span class="st">Vamos</span>
+      </a>
+
+      <div class="card" style="--r:.8deg">
+        <span class="knot" aria-hidden="true"></span>
+        <span class="n">02</span>
+        <h2>Sur le métier</h2>
+        <p>Les chantiers qui avancent doucement, petits ou grands.</p>
+        <span class="st">Mailles montées</span>
+      </div>
+
+      <div class="card" style="--r:-.5deg">
+        <span class="knot" aria-hidden="true"></span>
+        <span class="n">03</span>
+        <h2>Coups de cœur</h2>
+        <p>Ce qui m'a plu en chemin, gardé pour plus tard.</p>
+        <span class="st">Pelote</span>
+      </div>
+
+      <div class="card" style="--r:.6deg">
+        <span class="knot" aria-hidden="true"></span>
+        <span class="n">04</span>
+        <h2>Fait main</h2>
+        <p>Ce qui sort de mes dix doigts.</p>
+        <span class="st">Pelote</span>
+      </div>
+    </section>
+
+    <p class="legend"><em>Pelote</em> : ça me trotte dans la tête · <em>Mailles montées</em> : je m'y mets · <em>Sur les aiguilles</em> : ça avance · <em>Au repos</em> : ça attend son tour · <em>Rabattu</em> : c'est fini</p>
+
+    <footer>© 2026 Eli Bangoura · tricoté à la main</footer>
+  </div>
+</main>
+<script src="fil.js" defer></script>
+</body>
+</html>

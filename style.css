@@ -1,0 +1,104 @@
+/* elibangoura.com · « Le Fil » */
+
+@font-face{font-family:"Instrument Serif";src:url(fonts/instrument-serif.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url(fonts/instrument-serif-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"DM Mono";src:url(fonts/dm-mono-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Reenie Beanie";src:url(fonts/reenie-beanie.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+
+:root{
+  --violet:#5b2a86;--violet-d:#3b1859;--violet-l:#a77fd0;--or:#ffd76a;
+  --encre:#2a1d36;--texte:#4d3d5c;--doux:#6d5a7c;--papier:#f1e9dc;
+  --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .32  0 0 0 0 .22  0 0 0 0 .12  0 0 0 .11 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  --fibres:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='.012 .2' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 .4  0 0 0 0 .3  0 0 0 0 .2  0 0 0 .05 0'/></filter><rect width='100%' height='100%' filter='url(%23f)'/></svg>");
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  min-height:100vh;color:var(--encre);font-family:"DM Mono",ui-monospace,monospace;
+  background-color:var(--papier);
+  background-image:var(--noise),var(--fibres),radial-gradient(130% 60% at 50% 0%,#f7f1e7 0%,#ece2d2 70%,#e4d8c5 100%);
+  background-attachment:scroll;
+}
+a{color:inherit}
+
+.page{position:relative;max-width:460px;margin:0 auto;overflow:hidden}
+.in{position:relative;z-index:2;padding:calc(56px + env(safe-area-inset-top)) 24px calc(56px + env(safe-area-inset-bottom))}
+
+/* En-tête */
+.kick{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#7a5d93}
+h1{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(62px,20vw,84px);line-height:.84;letter-spacing:-.025em;margin-top:12px;color:var(--violet-d);text-shadow:0 1px 0 rgba(255,255,255,.5)}
+h1 i{display:block;padding-left:.45em}
+
+/* Polaroid et pince à linge */
+.pola-wrap{position:relative;margin:54px auto 0;width:min(236px,64vw);transform:rotate(-3.5deg)}
+.pola{background:#fbfaf6 var(--noise);padding:12px 12px 52px;border-radius:2px;
+  box-shadow:0 1px 1px rgba(0,0,0,.08),0 6px 10px -2px rgba(40,20,50,.18),0 26px 40px -14px rgba(40,20,50,.45)}
+.pic{position:relative}
+.pic img{display:block;width:100%;height:auto;aspect-ratio:540/700;object-fit:cover;object-position:50% 12%;filter:saturate(1.06) contrast(1.03)}
+.pic::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,0) 40%);box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+.pola figcaption{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-family:"Reenie Beanie",cursive;font-size:28px;color:#3b2a4a;transform:rotate(-1deg)}
+.pince{position:absolute;top:-30px;left:50%;width:18px;height:62px;transform:translateX(-50%) rotate(4deg);z-index:3;border-radius:3px 3px 4px 4px;
+  background:linear-gradient(90deg,#b98a57 0%,#d8b083 30%,#c99a66 55%,#a77744 100%);
+  box-shadow:2px 4px 6px rgba(40,20,10,.35),inset 0 0 0 1px rgba(90,55,25,.25)}
+.pince::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(80,50,20,.45)}
+.pince::after{content:"";position:absolute;left:-3px;right:-3px;top:24px;height:7px;border-radius:4px;background:linear-gradient(#e6e6e6,#9a9a9a 60%,#c9c9c9);box-shadow:0 1px 2px rgba(0,0,0,.35)}
+
+.tag{font-size:13px;line-height:1.6;max-width:270px;color:var(--texte);margin-top:44px}
+
+/* Étiquettes en lin cousues */
+.cards{margin-top:72px;display:flex;flex-direction:column;gap:70px}
+.card{position:relative;display:block;width:80%;text-decoration:none;padding:22px 20px 18px;border-radius:3px;
+  background-color:#f8f3ea;
+  background-image:var(--noise),repeating-linear-gradient(0deg,rgba(80,60,40,.05) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(80,60,40,.045) 0 1px,transparent 1px 3px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 2px 3px rgba(40,20,50,.08),0 18px 28px -16px rgba(59,24,89,.45);
+  transform:rotate(var(--r,0deg))}
+.card:nth-child(even){margin-left:auto}
+.card::before{content:"";position:absolute;inset:7px;border:2px dashed rgba(91,42,134,.55);border-radius:2px;pointer-events:none}
+.card .n{font-size:10.5px;color:#7a5d93;letter-spacing:.1em}
+.card h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:32px;line-height:1;margin:6px 0 8px;color:var(--violet-d)}
+.card p{font-size:12px;line-height:1.55;color:#5c4b6b}
+.st{display:inline-flex;align-items:center;gap:7px;margin-top:12px;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--violet)}
+.st::before{content:"";width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor}
+
+.card.on{color:#f6eefc;background-color:#55277f;background-image:var(--noise),radial-gradient(120% 90% at 20% 0%,#6d3699 0%,#4e2276 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 22px 32px -14px rgba(59,24,89,.7);transition:transform .25s ease,box-shadow .25s ease}
+.card.on::before{border-color:rgba(255,215,106,.7)}
+.card.on h2,.card.on .st{color:var(--or)}
+.card.on p{color:#e6d6f3}
+.card.on .n{color:#d3bce6}
+.card.on .st::before{background:currentColor}
+.card.on .st::after{content:"→";margin-left:2px}
+.card.on:active{transform:rotate(var(--r,0deg)) scale(.98)}
+@media (hover:hover){.card.on:hover{transform:rotate(0deg) translateY(-2px)}}
+.card.on:focus-visible{outline:3px solid var(--or);outline-offset:6px}
+
+.knot{position:absolute;top:-12px;left:24px;width:24px;height:24px;border-radius:50%;z-index:3;
+  background:radial-gradient(circle at 35% 30%,#9b6cc6 0%,#5b2a86 45%,#2f1148 100%);box-shadow:1px 3px 4px rgba(30,10,40,.4)}
+.knot::after{content:"";position:absolute;inset:4px;border-radius:50%;border:1.5px solid rgba(255,255,255,.18);border-left-color:transparent;transform:rotate(30deg)}
+.card.on .knot{background:radial-gradient(circle at 35% 30%,#fff0b8 0%,#ffd76a 45%,#c99a2e 100%)}
+
+.legend{margin-top:150px;font-size:11px;line-height:2;color:var(--doux);border-top:1px solid rgba(91,42,134,.2);padding-top:16px}
+.legend em{font-style:normal;color:var(--violet-d)}
+footer{margin-top:34px;font-size:10.5px;color:#6d5a7c;letter-spacing:.06em}
+
+/* Le fil (SVG) : traits simples, sans filtre, pour rester fluide sur téléphone */
+.yarn{position:absolute;left:0;top:0;z-index:1;pointer-events:none;overflow:visible}
+.yp{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.yp-shadow{stroke:#2a1236;stroke-opacity:.16;stroke-width:9;transform:translate(2px,4px)}
+.yp-fuzz{stroke:#8d5bb8;stroke-opacity:.35;stroke-width:10.5;stroke-dasharray:.7 2.1}
+.yp-core{stroke:var(--violet);stroke-width:7}
+.yp-twist{stroke:#3a1559;stroke-opacity:.6;stroke-width:7;stroke-dasharray:2.2 3.4}
+.yp-light{stroke:#b58ddb;stroke-opacity:.9;stroke-width:1.3;stroke-dasharray:2.2 3.4;stroke-dashoffset:-1.2;transform:translate(-1px,-1px)}
+.pelote{opacity:0;transition:opacity .5s ease}
+.pelote.vue{opacity:1}
+
+@media (prefers-reduced-motion:reduce){
+  .pelote{transition:none}
+  .card.on{transition:none}
+}
+
+/* Grand écran : la page reste une colonne, posée sur le papier */
+@media (min-width:700px){
+  .in{padding-top:90px}
+}
