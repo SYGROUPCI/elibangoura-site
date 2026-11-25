@@ -165,8 +165,10 @@
     attente = requestAnimationFrame(dispose);
   });
 
+  mondes.forEach(function (m, i) { m.style.setProperty("--i", i); });
   dispose();
   demarre();
+  requestAnimationFrame(function () { requestAnimationFrame(function () { hall.classList.add("pret"); }); });
   var img = coeur.querySelector("img");
   if (img && !img.complete) img.addEventListener("load", dispose);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(dispose);

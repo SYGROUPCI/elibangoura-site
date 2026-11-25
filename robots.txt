@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /atelier/
+Disallow: /api/
+
+Sitemap: https://elibangoura.com/sitemap.xml
