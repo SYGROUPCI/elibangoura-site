@@ -36,7 +36,9 @@
     svg.setAttribute("viewBox", "0 0 " + L + " " + H);
 
     var pince = centre(document.getElementById("pince"));
-    var points = [[L + 12, pince[1] - 70], [pince[0], pince[1] - 22]];
+    // Le fil entre par le bord droit de l'écran, même quand la page est plus étroite que l'écran.
+    var bordDroit = document.documentElement.clientWidth - page.getBoundingClientRect().left;
+    var points = [[Math.max(L, bordDroit) + 12, pince[1] - 70], [pince[0], pince[1] - 22]];
     var noeuds = page.querySelectorAll(".knot");
     for (var i = 0; i < noeuds.length; i++) points.push(centre(noeuds[i]));
     var dernier = points[points.length - 1];
@@ -53,7 +55,7 @@
     longueur = reveal.getTotalLength();
     reveal.style.strokeDasharray = longueur + " " + longueur;
     dessinePelote(fin[0], fin[1]);
-    derniereLargeur = L;
+    derniereLargeur = document.documentElement.clientWidth;
     avance();
   }
 
@@ -81,7 +83,7 @@
   function auRedimensionnement() {
     clearTimeout(minuterie);
     minuterie = setTimeout(function () {
-      if (page.clientWidth !== derniereLargeur || page.scrollHeight !== +svg.getAttribute("height")) construit();
+      if (document.documentElement.clientWidth !== derniereLargeur || page.scrollHeight !== +svg.getAttribute("height")) construit();
     }, 150);
   }
 
