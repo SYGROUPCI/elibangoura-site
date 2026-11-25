@@ -3,105 +3,85 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Eli Bangoura</title>
-<meta name="description" content="Eli Bangoura, à Logroño. Ce que j'apprends, ce que je fabrique et ce qui me trotte dans la tête.">
-<meta name="theme-color" content="#f1e9dc">
+<title>Eli Bangoura · Maison fondée à Logroño</title>
+<meta name="description" content="Maison Eli Bangoura, fondée à Logroño en 2026. Ce que j'apprends, ce que je fabrique et ce qui me trotte dans la tête.">
+<meta name="theme-color" content="#110916">
 <link rel="canonical" href="https://elibangoura.com/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://elibangoura.com/">
 <meta property="og:title" content="Eli Bangoura">
-<meta property="og:description" content="Ce que j'apprends, ce que je fabrique et ce qui me trotte dans la tête.">
+<meta property="og:description" content="Maison fondée à Logroño, 2026.">
 <meta property="og:image" content="https://elibangoura.com/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" href="fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css">
+<link rel="preload" href="photos/eli-polaroid.webp" as="image">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="maison.css">
 </head>
 <body>
-<main class="page" id="page">
-  <!-- Le fil (décoratif) : dessiné par fil.js. Sans JavaScript, la page reste complète. -->
-  <svg class="yarn" id="yarn" aria-hidden="true" focusable="false">
-    <defs>
-      <mask id="reveal" maskUnits="userSpaceOnUse" x="-2000" y="-2000" width="6000" height="20000"><path id="reveal-path" fill="none" stroke="#fff" stroke-width="24" stroke-linecap="round"/></mask>
-      <radialGradient id="pelote-grad" cx="35%" cy="30%"><stop offset="0" stop-color="#9b6cc6"/><stop offset=".55" stop-color="#5b2a86"/><stop offset="1" stop-color="#2f1148"/></radialGradient>
-    </defs>
-    <g mask="url(#reveal)">
-      <path class="yp yp-shadow"/>
-      <path class="yp yp-fuzz"/>
-      <path class="yp yp-core"/>
-      <path class="yp yp-twist"/>
-      <path class="yp yp-light"/>
-    </g>
-    <g id="pelote" class="pelote"></g>
-  </svg>
+<div class="hall" id="hall">
+  <header class="marque">
+    <h1 class="nom">Eli Bangoura</h1>
+    <p class="sous">Maison fondée à Logroño · MMXXVI</p>
+  </header>
 
-  <div class="in">
-    <header>
-      <p class="kick">Logroño · La Rioja</p>
-      <h1>Eli <i>Bangoura</i></h1>
-    </header>
+  <!-- Les fils de laine (décoratifs), dessinés par maison.js derrière le polaroid -->
+  <svg class="fils" id="fils" aria-hidden="true" focusable="false"></svg>
 
-    <figure class="pola-wrap">
-      <span class="pince" id="pince" aria-hidden="true"></span>
-      <div class="pola">
-        <div class="pic"><img src="photos/eli-polaroid.webp" width="540" height="864" alt="Eli Bangoura en robe bordeaux, dans la rue" fetchpriority="high"></div>
-        <figcaption>Eli, 2026</figcaption>
-      </div>
+  <div class="coeur" id="coeur">
+    <figure class="pola">
+      <span class="pince" aria-hidden="true"></span>
+      <div class="pic"><img src="photos/eli-polaroid.webp" width="540" height="864" alt="Eli Bangoura en robe bordeaux" fetchpriority="high"></div>
+      <figcaption>Eli, 2026</figcaption>
     </figure>
-
-    <p class="tag">Ici, je garde ce que j'apprends, ce que je fabrique et ce qui me trotte dans la tête. Un rang après l'autre.</p>
-
-    <!--
-      LES CARTES
-      Pour en ajouter une : copie un bloc <div class="card">…</div> et change le numéro, le titre, la phrase et l'étape.
-      Pour activer une carte : remplace <div class="card"> par <a class="card ouvert" href="/…/"> (et </div> par </a>).
-      La classe "on" (violet et jaune) reste réservée à Mi Español.
-      Étapes possibles : Pelote · Mailles montées · Sur les aiguilles · Au repos · Rabattu
-      Le fil se recalcule tout seul.
-    -->
-    <section class="cards" aria-label="Mes pelotes">
-      <a class="card on" href="https://sygroupci.github.io/mi-espanol/" style="--r:-.6deg">
-        <span class="knot" aria-hidden="true"></span>
-        <span class="n">01</span>
-        <h2>Mi Español</h2>
-        <p>Un peu d'espagnol chaque jour, même cinq minutes.</p>
-        <span class="st">Vamos</span>
-      </a>
-
-      <a class="card ouvert" href="sur-le-metier/" style="--r:.8deg">
-        <span class="knot" aria-hidden="true"></span>
-        <span class="n">02</span>
-        <h2 style="view-transition-name:metier-titre">Sur le métier</h2>
-        <p>Les chantiers qui avancent doucement, petits ou grands.</p>
-        <span class="st">Entrer dans l'atelier</span>
-      </a>
-
-      <div class="card" style="--r:-.5deg">
-        <span class="knot" aria-hidden="true"></span>
-        <span class="n">03</span>
-        <h2>Coups de cœur</h2>
-        <p>Ce qui m'a plu en chemin, gardé pour plus tard.</p>
-        <span class="st">Pelote</span>
-      </div>
-
-      <div class="card" style="--r:.6deg">
-        <span class="knot" aria-hidden="true"></span>
-        <span class="n">04</span>
-        <h2>Fait main</h2>
-        <p>Ce qui sort de mes dix doigts.</p>
-        <span class="st">Pelote</span>
-      </div>
-    </section>
-
-    <p class="legend"><em>Pelote</em> : ça me trotte dans la tête · <em>Mailles montées</em> : je m'y mets · <em>Sur les aiguilles</em> : ça avance · <em>Au repos</em> : ça attend son tour · <em>Rabattu</em> : c'est fini</p>
-
-    <footer>© 2026 Eli Bangoura · tricoté à la main</footer>
   </div>
-</main>
-<script src="fil.js" defer></script>
+
+  <!--
+    LES MONDES
+    Un monde ouvert : <a class="monde ouvert" href="…">. Un monde à venir : <button type="button" class="monde futur">.
+    data-k : le petit intitulé · data-fond / data-encre : les couleurs de son atmosphère · data-p : la phrase du passage.
+    Pour ouvrir un monde à venir : remplace <button type="button" class="monde futur"> par <a class="monde ouvert" href="/…/"> (et </button> par </a>).
+    Les fils se recalculent tout seuls.
+  -->
+  <nav class="mondes" id="mondes" aria-label="Les mondes de la Maison">
+    <a class="monde ouvert" href="https://sygroupci.github.io/mi-espanol/" data-fond="#4b1f72" data-encre="#ffe08a" data-p="Un peu d'espagnol chaque jour, même cinq minutes.">
+      <span class="noeud" aria-hidden="true"></span><span class="k">La langue</span><span class="t">Mi Español</span>
+    </a>
+    <a class="monde ouvert" href="sur-le-metier/" data-fond="#1f1029" data-encre="#ead3a0" data-p="Les chantiers en cours, tissés rang après rang.">
+      <span class="noeud" aria-hidden="true"></span><span class="k">L'atelier</span><span class="t" style="view-transition-name:metier-titre">Sur le métier</span>
+    </a>
+    <button type="button" class="monde futur" data-fond="#5e1428" data-encre="#f6dfe2" data-p="Ce qui m'a plu en chemin, gardé pour plus tard.">
+      <span class="noeud" aria-hidden="true"></span><span class="k">Le cabinet</span><span class="t">Coups de cœur</span>
+    </button>
+    <button type="button" class="monde futur" data-fond="#2f3f33" data-encre="#e8efe2" data-p="Ce qui sort de mes dix doigts.">
+      <span class="noeud" aria-hidden="true"></span><span class="k">Les pièces</span><span class="t">Fait main</span>
+    </button>
+    <button type="button" class="monde futur" data-fond="#efe6d8" data-encre="#2a1d36" data-p="Les collections de la Maison, le jour venu.">
+      <span class="noeud" aria-hidden="true"></span><span class="k">La boutique</span><span class="t">Maison</span>
+    </button>
+    <button type="button" class="monde futur" data-fond="#e9dfcf" data-encre="#3b1859" data-p="Récits, images et coulisses, de Conakry à Logroño.">
+      <span class="noeud" aria-hidden="true"></span><span class="k">Le journal</span><span class="t">Carnets</span>
+    </button>
+    <button type="button" class="monde futur" data-fond="#0d0d12" data-encre="#c9a86a" data-p="Collaborations, presse et invitations.">
+      <span class="noeud" aria-hidden="true"></span><span class="k">Rendez-vous</span><span class="t">Écrire</span>
+    </button>
+  </nav>
+
+  <p class="pied">Touchez un monde pour y entrer</p>
+</div>
+
+<div class="portail" id="portail" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="portail-titre">
+  <span class="k" id="portail-k"></span>
+  <h2 id="portail-titre"></h2>
+  <p id="portail-p"></p>
+  <span class="etat" id="portail-etat"></span>
+  <button type="button" id="portail-retour">Revenir au hall</button>
+</div>
+
+<script src="maison.js" defer></script>
 </body>
 </html>
