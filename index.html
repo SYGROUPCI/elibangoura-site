@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="photos/eli-polaroid.webp" as="image" data-polaroid>
-<script>document.documentElement.classList.add('js')</script>
+<script>document.documentElement.classList.add('js');if(window.innerWidth<600)document.documentElement.setAttribute('data-mode','tel')</script>
 <link rel="stylesheet" href="maison.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -79,6 +79,14 @@
       <span class="noeud" aria-hidden="true"></span><span class="k">Rendez-vous</span><span class="t">Écrire</span>
     </button>
   </nav>
+
+  <!-- Téléphone uniquement : la phrase sous la photo, l'invitation à suivre le fil, le titre du second écran -->
+  <div class="seuil">
+    <p class="bio">Logroño, La Rioja. Une Maison pour ce que j'apprends, ce que je fabrique et ce qui me trotte dans la tête.</p>
+    <button type="button" class="suivre">Suivre le fil</button>
+  </div>
+  <p class="titre-mondes" aria-hidden="true">Les mondes de la Maison</p>
+  <span class="cran cran-1" aria-hidden="true"></span><span class="cran cran-2" aria-hidden="true"></span>
 
   <p class="pied">Touchez un monde pour y entrer</p>
 </div>

@@ -127,7 +127,30 @@ a{color:inherit}
 @media (min-width:600px) and (max-height:559px){.js .coeur{top:54%}}
 /* Entrée : les fils et les mondes apparaissent un à un, une fois placés */
 .js .fils{transition:opacity .9s ease .1s}
-.js .monde{transition:opacity .7s ease calc(.15s + var(--i,0) * .07s),translate .9s cubic-bezier(.2,.7,.1,1) calc(.15s + var(--i,0) * .07s)}
+.js .monde{transition:opacity .8s ease calc(.15s + var(--i,0) * .08s)}
 .js .hall:not(.pret) .fils{opacity:0}
-.js .hall:not(.pret) .monde{opacity:0;translate:0 10px}
+.js .hall:not(.pret) .monde{opacity:0}
 @media (prefers-reduced-motion:reduce){.js .fils,.js .monde{transition:none}}
+
+/* ---------- Téléphone : en deux temps ---------- */
+.seuil,.bio,.suivre,.titre-mondes,.cran{display:none}
+html.js[data-mode="tel"]{scroll-snap-type:y mandatory}
+html.js[data-mode="tel"] body{overflow:visible}
+.js[data-mode="tel"] .hall{position:relative;inset:auto;height:200svh;min-height:0;padding:0}
+.js[data-mode="tel"] .coeur{width:min(54vw,230px);top:max(42svh,calc(99px + env(safe-area-inset-top) + min(54vw,230px) * .96))}
+.js[data-mode="tel"] .cran{display:block;position:absolute;left:0;width:1px;height:100svh;scroll-snap-align:start}
+.js[data-mode="tel"] .cran-1{top:0}
+.js[data-mode="tel"] .cran-2{top:100svh}
+.js[data-mode="tel"] .seuil{display:block;position:absolute;z-index:3;left:94px;right:26px;top:calc(var(--bas-photo,480px) + 24px)}
+.js[data-mode="tel"] .bio{display:block;font-size:12px;line-height:1.7;color:#cdbfd8}
+.js[data-mode="tel"] .suivre{display:block;margin-top:16px;background:none;border:0;cursor:pointer;
+  font:inherit;font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--brume);padding:8px 0}
+.js[data-mode="tel"] .suivre::after{content:"";display:block;width:1px;height:34px;margin:10px 0 0 6px;background:linear-gradient(var(--or),transparent);animation:respire 2.6s ease-in-out infinite}
+@keyframes respire{50%{transform:translateY(6px);opacity:.6}}
+.js[data-mode="tel"] .titre-mondes{display:block;position:absolute;z-index:3;left:0;right:0;top:calc(100svh + 54px);text-align:center;
+  font-size:9px;letter-spacing:.34em;padding-left:.34em;text-transform:uppercase;color:var(--or)}
+.js[data-mode="tel"] .monde.cote-d{max-width:calc(100vw - 70px)}
+.js[data-mode="tel"] .monde .t{font-size:clamp(28px,8.4vw,36px)}
+.js[data-mode="tel"] .monde .k{font-size:9px}
+.js[data-mode="tel"] .pied{display:none}
+@media (prefers-reduced-motion:reduce){.js[data-mode="tel"] .suivre::after{animation:none}}
