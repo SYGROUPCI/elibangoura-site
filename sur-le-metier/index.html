@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sur le métier · Eli Bangoura</title>
+<meta name="description" content="L'atelier d'Eli Bangoura : ce qui se tisse en ce moment, un rang à la fois.">
+<meta name="theme-color" content="#1a0d24">
+<link rel="canonical" href="https://elibangoura.com/sur-le-metier/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://elibangoura.com/sur-le-metier/">
+<meta property="og:title" content="Sur le métier · Eli Bangoura">
+<meta property="og:description" content="Ce qui se tisse en ce moment, un rang à la fois.">
+<meta property="og:image" content="https://elibangoura.com/og.jpg">
+<link rel="preload" href="../fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Instrument Serif";src:url(../fonts/instrument-serif.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url(../fonts/instrument-serif-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"DM Mono";src:url(../fonts/dm-mono-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@view-transition{navigation:auto}
+
+:root{
+  --nuit:#1a0d24;--nuit-2:#241233;--or:#d9b56a;--or-clair:#f0d9a2;--lin:#efe6d8;--doux:#b9a8c9;
+  --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 .9  0 0 0 0 .8  0 0 0 .06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+@supports (overflow:clip){html,body{overflow-x:clip}}
+body{min-height:100vh;color:var(--lin);font-family:"DM Mono",ui-monospace,monospace;
+  background-color:var(--nuit);
+  background-image:var(--noise),
+    repeating-linear-gradient(90deg,rgba(217,181,106,.07) 0 1px,transparent 1px 22px),
+    radial-gradient(120% 70% at 50% 0%,#2e1742 0%,var(--nuit) 60%,#12091a 100%)}
+a{color:inherit}
+.monde{max-width:520px;margin:0 auto;padding:calc(28px + env(safe-area-inset-top)) 22px calc(48px + env(safe-area-inset-bottom))}
+
+.retour{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--doux);text-decoration:none;padding:10px 0}
+.retour::before{content:"";width:22px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--or),#7b48a8)}
+.retour:hover,.retour:focus-visible{color:var(--or-clair)}
+
+.kick{margin-top:38px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+h1{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-style:italic;font-size:clamp(58px,17vw,88px);line-height:.88;letter-spacing:-.02em;margin-top:10px;color:var(--lin);view-transition-name:metier-titre}
+.intro{margin-top:18px;font-size:13px;line-height:1.65;color:var(--doux);max-width:330px}
+
+/* Le métier : chaque chantier est une bande tissée sur des fils de chaîne */
+.metier{margin-top:46px;display:flex;flex-direction:column;gap:26px;list-style:none}
+.chantier{position:relative}
+.tete{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.chantier h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:28px;line-height:1.05;color:var(--lin)}
+.etape{flex:none;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--or);display:inline-flex;align-items:center;gap:7px}
+.etape::before{content:"";width:8px;height:8px;border-radius:50%;border:1.5px solid currentColor}
+.etape.active::before{background:currentColor}
+.chantier p{margin-top:6px;font-size:12px;line-height:1.55;color:var(--doux)}
+
+.bande{position:relative;margin-top:12px;height:46px;border-radius:3px;overflow:hidden;
+  background:
+    repeating-linear-gradient(90deg,rgba(239,230,216,.16) 0 2px,transparent 2px 7px),
+    rgba(255,255,255,.025);
+  box-shadow:inset 0 0 0 1px rgba(217,181,106,.14)}
+.tisse{position:absolute;inset:0 auto 0 0;width:var(--fait);animation:tisser 1.6s cubic-bezier(.2,.7,.1,1) .25s both;
+  background-color:var(--c);
+  background-image:
+    repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 2px,transparent 2px 5px),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 2px,transparent 2px 7px),
+    linear-gradient(180deg,rgba(255,255,255,.12),rgba(0,0,0,.18));
+  box-shadow:2px 0 6px rgba(0,0,0,.45)}
+.tisse::after{content:"";position:absolute;right:-1px;top:-4px;bottom:-4px;width:3px;border-radius:2px;background:var(--or-clair);box-shadow:0 0 8px rgba(240,217,162,.6)}
+@keyframes tisser{from{width:0}to{width:var(--fait)}}
+.rangs{margin-top:8px;font-size:10px;letter-spacing:.1em;color:#8f7ea0;text-transform:uppercase}
+
+.chantier.attente .bande{background:repeating-linear-gradient(90deg,rgba(239,230,216,.09) 0 2px,transparent 2px 7px);box-shadow:inset 0 0 0 1px rgba(217,181,106,.08)}
+.chantier.attente h2{color:#a998b8;font-style:italic}
+.chantier.attente .tisse{display:none}
+
+.legende{margin-top:56px;padding-top:16px;border-top:1px solid rgba(217,181,106,.18);font-size:10.5px;line-height:2;color:#8f7ea0}
+.legende em{font-style:normal;color:var(--or-clair)}
+footer{margin-top:28px;font-size:10.5px;letter-spacing:.06em;color:#7a6a8b}
+
+@media (prefers-reduced-motion:reduce){.tisse{animation:none}@view-transition{navigation:none}}
+</style>
+</head>
+<body>
+<main class="monde">
+  <a class="retour" href="../">Revenir au fil</a>
+
+  <p class="kick">L'atelier</p>
+  <h1>Sur le métier</h1>
+  <p class="intro">Ce qui se tisse en ce moment. Chaque bande avance d'un rang quand le chantier avance.</p>
+
+  <!--
+    LES CHANTIERS
+    Pour en ajouter un : copie un bloc <li class="chantier">…</li>.
+    --fait : la part déjà tissée (0% à 100%). --c : la couleur du fil.
+    Couleurs prévues : #5b2a86 violet · #8c1d3a bordeaux · #b8913f or · #4f6b58 sauge · #2f4a7a indigo
+    Étapes : Pelote · Mailles montées · Sur les aiguilles · Au repos · Rabattu
+    Un chantier pas encore commencé : ajoute la classe "attente".
+  -->
+  <ol class="metier">
+    <li class="chantier" style="--fait:38%;--c:#5b2a86">
+      <div class="tete"><h2>Mi Español</h2><span class="etape active">Sur les aiguilles</span></div>
+      <p>Une phrase de plus chaque jour, et la série tient bon.</p>
+      <div class="bande" aria-hidden="true"><div class="tisse"></div></div>
+      <p class="rangs">38 rangs sur 100</p>
+    </li>
+
+    <li class="chantier" style="--fait:18%;--c:#8c1d3a">
+      <div class="tete"><h2>Ce site</h2><span class="etape active">Mailles montées</span></div>
+      <p>Le premier fil est tendu. Les autres pièces viendront une à une.</p>
+      <div class="bande" aria-hidden="true"><div class="tisse"></div></div>
+      <p class="rangs">18 rangs sur 100</p>
+    </li>
+
+    <li class="chantier attente" style="--fait:0%;--c:#b8913f">
+      <div class="tete"><h2>Le prochain</h2><span class="etape">Pelote</span></div>
+      <p>Une place sur le métier, en attendant la première maille.</p>
+      <div class="bande" aria-hidden="true"><div class="tisse"></div></div>
+      <p class="rangs">Pas encore commencé</p>
+    </li>
+  </ol>
+
+  <p class="legende"><em>Pelote</em> : ça me trotte dans la tête · <em>Mailles montées</em> : je m'y mets · <em>Sur les aiguilles</em> : ça avance · <em>Au repos</em> : ça attend son tour · <em>Rabattu</em> : c'est fini</p>
+  <footer>© 2026 Eli Bangoura · l'atelier</footer>
+</main>
+</body>
+</html>

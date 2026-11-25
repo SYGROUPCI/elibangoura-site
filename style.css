@@ -105,3 +105,17 @@ footer{margin-top:34px;font-size:10.5px;color:#6d5a7c;letter-spacing:.06em}
 @media (min-width:700px){
   .in{padding-top:90px}
 }
+
+/* Carte ouverte (un monde où l'on peut entrer) : lin, nœud or, flèche */
+.card.ouvert{transition:transform .25s ease,box-shadow .25s ease}
+.card.ouvert .knot{background:radial-gradient(circle at 35% 30%,#fff0b8 0%,#d9b56a 45%,#9c7a2e 100%)}
+.card.ouvert .st::before{background:currentColor}
+.card.ouvert .st::after{content:"→";margin-left:2px}
+.card.ouvert:active{transform:rotate(var(--r,0deg)) scale(.98)}
+@media (hover:hover){.card.ouvert:hover{transform:rotate(0deg) translateY(-2px)}}
+.card.ouvert:focus-visible{outline:3px solid var(--violet);outline-offset:6px}
+
+/* Passage d'une page à l'autre en fondu, le titre glisse jusqu'à sa place (navigateurs récents) */
+@view-transition{navigation:auto}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.45s}
+@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}}

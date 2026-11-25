@@ -58,7 +58,8 @@
     <!--
       LES CARTES
       Pour en ajouter une : copie un bloc <div class="card">…</div> et change le numéro, le titre, la phrase et l'étape.
-      Pour activer une carte : remplace <div class="card"> par <a class="card on" href="https://…"> (et </div> par </a>).
+      Pour activer une carte : remplace <div class="card"> par <a class="card ouvert" href="/…/"> (et </div> par </a>).
+      La classe "on" (violet et jaune) reste réservée à Mi Español.
       Étapes possibles : Pelote · Mailles montées · Sur les aiguilles · Au repos · Rabattu
       Le fil se recalcule tout seul.
     -->
@@ -71,13 +72,13 @@
         <span class="st">Vamos</span>
       </a>
 
-      <div class="card" style="--r:.8deg">
+      <a class="card ouvert" href="sur-le-metier/" style="--r:.8deg">
         <span class="knot" aria-hidden="true"></span>
         <span class="n">02</span>
-        <h2>Sur le métier</h2>
+        <h2 style="view-transition-name:metier-titre">Sur le métier</h2>
         <p>Les chantiers qui avancent doucement, petits ou grands.</p>
-        <span class="st">Mailles montées</span>
-      </div>
+        <span class="st">Entrer dans l'atelier</span>
+      </a>
 
       <div class="card" style="--r:-.5deg">
         <span class="knot" aria-hidden="true"></span>
