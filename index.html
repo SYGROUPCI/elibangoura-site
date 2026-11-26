@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="photos/eli-polaroid.webp" as="image" data-polaroid>
-<script>document.documentElement.classList.add('js');if(window.innerWidth<600)document.documentElement.setAttribute('data-mode','tel')</script>
+<script>document.documentElement.classList.add('js');if(window.innerWidth<600)document.documentElement.setAttribute('data-mode','tel');try{if(!localStorage.getItem('eb-carton'))document.documentElement.classList.add('avec-carton')}catch(e){}</script>
 <link rel="stylesheet" href="maison.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -32,10 +32,28 @@
 
 </head>
 <body>
+<!-- Le carton d'entrée : seulement à la première visite (affiché par le script en tête, ouvert par vie.js) -->
+<div class="seuil-carton" id="carton" hidden>
+  <div class="carton">
+    <p class="c-k">Carton d'entrée</p>
+    <p class="c-qui">Elisabeth Bangoura</p>
+    <p class="c-vous">vous ouvre sa Maison</p>
+    <span class="c-trait" aria-hidden="true"></span>
+    <p class="c-lieu">Logroño · MMXXVI</p>
+    <button type="button" class="sceau" id="sceau" aria-label="Maintenir pour briser le sceau et entrer">
+      <svg class="anneau" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47"/></svg>
+      <span class="moitie g" aria-hidden="true"><i>EB</i></span><span class="moitie d" aria-hidden="true"><i>EB</i></span>
+    </button>
+    <p class="c-aide">Maintenez le sceau</p>
+  </div>
+  <button type="button" class="sans-ceremonie" id="sans-ceremonie">Entrer sans cérémonie</button>
+</div>
+
 <div class="hall" id="hall">
   <header class="marque">
     <h1 class="nom">Elisabeth Bangoura</h1>
     <p class="sous">Maison fondée à Logroño · MMXXVI</p>
+    <p class="heure" id="heure"></p>
   </header>
 
   <!-- Les fils de laine (décoratifs), dessinés par maison.js derrière le polaroid -->
@@ -100,5 +118,6 @@
 </div>
 
 <script src="maison.js" defer></script>
+<script src="vie.js" defer></script>
 </body>
 </html>
